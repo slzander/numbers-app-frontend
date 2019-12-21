@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Jura', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    font-size: 16pt;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+#logo {
+    display: flex;
+    text-align: center;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1 {
+    font-size: 40pt;
+    padding: 0;
+    margin: 0;
+}
+
+#icon {
+    height: 140px;
+}
+
+main {
+    padding-top: 180px;
+    /* background-color: #ffffff59; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('https://www.timelinecoverbanner.com/facebook-covers/turqoisse.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin-top: 80px;
+    height: 100vh;
+    width: 100vw;
+}
+
+#indexSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 550px;
+    padding: 20px;
+    background-color: #46aa94;
+    border-radius: 5px;
+
+}
+
+#TVDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f6f6f6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#antennae {
+    height: 60px;
+}
+
+#showMeActivities {
+    width: 50%;
+    margin-top: 20px; 
+    padding: 15px;
+    font-size: 12pt;
+    border-radius: 5px;
+}
+
+#asideDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardLi {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    height: 25px;
+    margin: 10px;
+}
+
+#asideDiv button {
+    margin-right: 10px;
+}
+
+p {
+    margin: 0px;
+    font-size: 15pt;
+}
+
+h2 {
+    padding-left: 20px; 
+    padding-bottom: 20px;
+}
+
+aside {
+    height: 260px;
+    width: 600px;
+    background-color: #46aa94;
+    margin: 20px;
+    border-radius: 5px;
+    overflow: auto;
+    padding: 20px;
+}
+
+#trainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 595px;
+    padding: 20px;
+    background-color: #46aa94;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+#canvasDivTrain {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#buttonDiv {
+    margin-top: 15px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#buttonDiv button {
+    width: 28%;
+    padding: 5px;
+    margin: 5px;
+}
+
+#buttonDiv button:nth-child(-n+4) {
+    width: 20%;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 25px;
+}
+
+button {
+    font-family: 'Jura', sans-serif;
+    font-size: 10pt;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #94c2ce;
+}
