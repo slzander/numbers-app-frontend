@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const activityList = document.querySelector("#activityList")
     const favoriteList = document.querySelector("#favoriteList")
     const howImFeelingButton = document.querySelector("#showMeActivities")
-    const favH2 = document.querySelector("#favH2")
 
     howImFeelingButton.innerText = "Model is loading..."
 
@@ -15,9 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let number = label
         activityList.innerHTML = ''
         favoriteList.innerHTML = ''
-        favH2.innerText = `Your numbers:`
         showActivities(number)
-        showFavorites(number)
+        showFavorites()
     })
 
     function showActivities(numberInput){
@@ -62,21 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         addButton.addEventListener("click", (event) => {
             const li = document.createElement("li")
-            const favoriteDescription = document.createElement("p")
+            const countImage = document.createElement("img")
             const deleteButton = document.createElement("button")
             const cardDiv = document.createElement("div")
-    
-            favoriteDescription.innerText = number.description
+
+            countImage.src = number.count_image
+
             deleteButton.innerText = "-"
             li.className = "cardLi"
-    
-            li.append(deleteButton, favoriteDescription)
-            cardDiv.append(li)
+            countImage.className = "count-image"
+            li.append(countImage, deleteButton)
+            cardDiv.appendChild(li)
             favoriteList.appendChild(cardDiv)
 
-            const activityName = number.name
-            const numberAddedP = document.querySelector("#" + activityName)
-            numberAddedP.remove()
+            deleteButton.addEventListener("click", function(event){
+                cardDiv.remove()
+                fetch(`http://localhost:3000/favorites/${favorite.id}`, {
+                    method: "DELETE"
+                })     
+            })
 
             fetch("http://localhost:3000/favorites", {
                 method: "POST",
@@ -86,53 +88,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({
                    number_id: number.id
                 })
-            }).then(response => response.json())
-            .then(favorite => 
-                deleteButton.addEventListener("click", function(event){
-                    console.log(favorite)
-                    cardDiv.remove()
-                    fetch(`http://localhost:3000/favorites/${favorite.id}`, {
-                        method: "DELETE"
-                })     
-            }))
+            })
         })
     }
 
-    function showFavorites(emotionInput){
+    function showFavorites(){
         fetch("http://localhost:3000/favorites/")
             .then(response => response.json())
             .then(favorites => favorites.map(favorite => {
-                if (favorite.activity.emotion == emotionInput)
                     createFavoriteCard(favorite)
             }))
     }
 
     function createFavoriteCard(favorite){
+        
         const li = document.createElement("li")
-        const favoriteDescription = document.createElement("p")
+        const countImage = document.createElement("img")
         const deleteButton = document.createElement("button")
         const cardDiv = document.createElement("div")
         const fave = favorite
 
-        li.setAttribute("class", "cardLi")
-        favoriteDescription.innerText = favorite.activity.description
-        deleteButton.innerText = "-"
+        countImage.src = favorite.number.count_image
 
-        li.append(deleteButton, favoriteDescription)
-        cardDiv.append(li)
-        favoriteList.appendChild(cardDiv)
+        deleteButton.innerText = "-"
+        li.className = "cardLi"
+        countImage.className = "count-image"
+        
+        li.append(countImage, deleteButton)
+        cardDiv.appendChild(li)
+        favoriteList.appendChild(li)
 
         deleteButton.addEventListener("click", function(event){
             cardDiv.remove()
+            
             const li = document.createElement("li")
-            const activityDescription = document.createElement("p")
+            const countImage = document.createElement("img")
             const addButton = document.createElement("button")
-
-            li.setAttribute("class", "cardLi")
-            activityDescription.innerText = fave.activity.description
-            addButton.innerText = "+"
     
-            li.append(addButton, activityDescription)
+            li.id = fave.number.name
+            li.className = "cardLi"
+            countImage.src = fave.number.count_image
+            addButton.innerText = "+"
+            countImage.className = "count-image"
+    
+            li.append(countImage, addButton)
             activityList.appendChild(li)
             
             fetch(`http://localhost:3000/favorites/${fave.id}`, {

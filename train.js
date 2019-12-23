@@ -130,7 +130,6 @@ function setup() {
         ten.innerText = `10: ${buttonTenCounter}`
     })
 
-
     trainButton = createButton('train')
     trainButton.mousePressed(function() {
         classifier.train(whileTraining)

@@ -7,6 +7,7 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
+    overflow: hidden
 }
 
 header {
@@ -49,6 +50,12 @@ header li a {
     flex-wrap: wrap;
 }
 
+#favoriteList {
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+}
+
 .cardLi {
     display: flex;
     flex-direction: column;
@@ -57,8 +64,8 @@ header li a {
 }
 
 .count-image {
-    height: 10rem;
-    width: 7rem;
+    height: 15rem;
+    width: 11rem;
     margin: 5px;
 }
 
@@ -134,13 +141,12 @@ main {
 #asideDiv {
     display: flex;
     flex-direction: column;
-
 }
-
+/* 
 p {
     margin: 0px;
     font-size: 15pt;
-}
+} */
 
 h2 {
     padding-left: 20px; 
@@ -164,12 +170,11 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 595px;
+    justify-content: flex-end;
+    height: 755px;
     padding: 20px;
-    background-color: #46aa94;
+    background-color: #b4bfc1;
     border-radius: 5px;
-    margin-top: 40px;
 }
 
 #canvasDivTrain {
@@ -179,7 +184,7 @@ aside {
 }
 
 #buttonDiv {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     width: 500px;
     height: 100px;
     display: flex;
@@ -194,11 +199,10 @@ aside {
     margin: 5px;
 }
 
-#buttonDiv button:nth-child(-n+4) {
-    width: 20%;
+#buttonDiv button:nth-child(-n+10) {
+    width: 15%;
     padding: 5px;
     margin: 5px;
-    margin-bottom: 25px;
 }
 
 button {
