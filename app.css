@@ -40,6 +40,31 @@ header li a {
     text-decoration: none;
 }
 
+#activityList {
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+}
+
+.cardLi {
+    /* text-decoration: none; */
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 15px;
+}
+
+/* 
+.num-image {
+    width: 30px;
+} */
+
+.count-image {
+    height: 10rem;
+    width: 5rem;
+    margin: 5px;
+}
+
 #logo {
     display: flex;
     text-align: center;
@@ -48,7 +73,6 @@ header li a {
 #title {
     display: flex;
     flex-direction: column;
-
 }
 
 h1 {
@@ -63,7 +87,6 @@ h1 {
 
 main {
     padding-top: 180px;
-    /* background-color: #ffffff59; */
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -112,18 +135,6 @@ main {
 #asideDiv {
     display: flex;
     flex-direction: column;
-}
-
-.cardLi {
-    text-decoration: none;
-    list-style-type: none;
-    display: flex;
-    height: 25px;
-    margin: 10px;
-}
-
-#asideDiv button {
-    margin-right: 10px;
 }
 
 p {

@@ -3,10 +3,10 @@ let mobilenet;
 let classifier;
 let video;
 let label = 'Please wait while the model loads';
-let buttonA;
-let buttonB;
-let buttonC;
-let buttonD;
+let buttonOne;
+let buttonTwo;
+let buttonThree;
+let buttonFour;
 let trainButton;
 let saveButton;
 let options = {numLabels: 4}
@@ -34,40 +34,40 @@ function setup() {
     mobilenet = ml5.featureExtractor('MobileNet', options, modelReady)
     classifier = mobilenet.classification(video, videoReady)
 
-    let buttonACounter = 0
-    buttonA = createButton('A')
-    buttonA.mousePressed(function() {
-        classifier.addImage('A')
-        const a = document.querySelector("#buttonDiv button:nth-child(1)")
-        buttonACounter += 1
-        a.innerText = `A: ${buttonACounter}`
+    let buttonOneCounter = 0
+    buttonOne = createButton('1')
+    buttonOne.mousePressed(function() {
+        classifier.addImage('1')
+        const one = document.querySelector("#buttonDiv button:nth-child(1)")
+        buttonOneCounter += 1
+        one.innerText = `1: ${buttonOneCounter}`
     })
 
-    let buttonBCounter = 0
-    buttonB = createButton('B')
-    buttonB.mousePressed(function() {
-        classifier.addImage('B')
-        const b = document.querySelector("#buttonDiv button:nth-child(2)")
-        buttonBCounter += 1
-        b.innerText = `B: ${buttonBCounter}`
+    let buttonTwoCounter = 0
+    buttonTwo = createButton('2')
+    buttonTwo.mousePressed(function() {
+        classifier.addImage('2')
+        const two = document.querySelector("#buttonDiv button:nth-child(2)")
+        buttonTwoCounter += 1
+        two.innerText = `2: ${buttonTwoCounter}`
     })
 
-    let buttonCCounter = 0
-    buttonC = createButton('C')
-    buttonC.mousePressed(function() {
-        classifier.addImage('C')
-        const c = document.querySelector("#buttonDiv button:nth-child(3)")
-        buttonCCounter += 1
-        c.innerText = `C: ${buttonCCounter}`
+    let buttonThreeCounter = 0
+    buttonThree = createButton('3')
+    buttonThree.mousePressed(function() {
+        classifier.addImage('3')
+        const three = document.querySelector("#buttonDiv button:nth-child(3)")
+        buttonThreeCounter += 1
+        three.innerText = `3: ${buttonThreeCounter}`
     })
 
-    let buttonDCounter = 0
-    buttonD = createButton('D')
-    buttonD.mousePressed(function() {
-        classifier.addImage('D')
-        const d = document.querySelector("#buttonDiv button:nth-child(4)")
-        buttonDCounter += 1
-        d.innerText = `D: ${buttonDCounter}`
+    let buttonFourCounter = 0
+    buttonFour = createButton('4')
+    buttonFour.mousePressed(function() {
+        classifier.addImage('4')
+        const four = document.querySelector("#buttonDiv button:nth-child(4)")
+        buttonFourCounter += 1
+        four.innerText = `4: ${buttonFourCounter}`
     })
 
     trainButton = createButton('train')

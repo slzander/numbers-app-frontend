@@ -12,51 +12,52 @@ document.addEventListener("DOMContentLoaded", () => {
     howImFeelingButton.innerText = "Model is loading..."
 
     howImFeelingButton.addEventListener("click", () => {
-        let emotion = label
+        let number = label
         activityList.innerHTML = ''
         favoriteList.innerHTML = ''
         favH2.innerText = `Your numbers:`
-        showActivities(emotion)
-        showFavorites(emotion)
+        showActivities(number)
+        showFavorites(number)
     })
 
-    function showActivities(emotionInput){
-        fetch("http://localhost:3000/activities/")
+    function showActivities(numberInput){
+        fetch("http://localhost:3000/numbers/")
             .then(response => response.json())
-            .then(activities => activities.map(activity => {
-                if (activity.emotion == emotionInput)
-                    showActivityNotFavorites(activity)
+            .then(numbers => numbers.map(number => {
+                if (number.num == numberInput)
+                    showNumberNotFavorites(number)
             }))
     }
 
-    function showActivityNotFavorites(activity){
+    function showNumberNotFavorites(number){
         fetchFavoritesList()
             .then(favoritesIds => {
-                if (!favoritesIds.includes(activity.id)){
-                    createActivityCard(activity)
+                if (!favoritesIds.includes(number.id)){
+                    createNumberCard(number)
                 }
             })
     }
 
     function fetchFavoritesList(){
-        return fetch("http://localhost:3000/activity_favorites")
+        return fetch("http://localhost:3000/favorites")
             .then(response => response.json())
-            .then(activity_favorites => activity_favorites.map(activity_favorite => {
-                return activity_favorite.activity_id
+            .then(favorites => favorites.map(favorite => {
+                return favorite.number_id
             }))
     }
 
-    function createActivityCard(activity){
+    function createNumberCard(number){
         const li = document.createElement("li")
-        const activityDescription = document.createElement("p")
+        const countImage = document.createElement("img")
         const addButton = document.createElement("button")
 
-        li.id = activity.name
-        li.setAttribute("class", "cardLi")
-        activityDescription.innerText = activity.description
+        li.id = number.name
+        li.className = "cardLi"
+        countImage.src = number.count_image
         addButton.innerText = "+"
+        countImage.className = "count-image"
 
-        li.append(addButton, activityDescription)
+        li.append(countImage, addButton)
         activityList.appendChild(li)
 
         addButton.addEventListener("click", (event) => {
@@ -65,33 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
             const deleteButton = document.createElement("button")
             const cardDiv = document.createElement("div")
     
-            favoriteDescription.innerText = activity.description
+            favoriteDescription.innerText = number.description
             deleteButton.innerText = "-"
-            li.setAttribute("class", "cardLi")
+            li.className = "cardLi"
     
             li.append(deleteButton, favoriteDescription)
             cardDiv.append(li)
             favoriteList.appendChild(cardDiv)
 
-            const activityName = activity.name
-            const activityAddedP = document.querySelector("#" + activityName)
-            activityAddedP.remove()
+            const activityName = number.name
+            const numberAddedP = document.querySelector("#" + activityName)
+            numberAddedP.remove()
 
-            fetch("http://localhost:3000/activity_favorites", {
+            fetch("http://localhost:3000/favorites", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                   activity_id: activity.id,
-                   favorite_id: 1
+                   number_id: number.id
                 })
             }).then(response => response.json())
-            .then(activity_favorite => 
+            .then(favorite => 
                 deleteButton.addEventListener("click", function(event){
-                    console.log(activity_favorite)
+                    console.log(favorite)
                     cardDiv.remove()
-                    fetch(`http://localhost:3000/activity_favorites/${activity_favorite.id}`, {
+                    fetch(`http://localhost:3000/favorites/${favorite.id}`, {
                         method: "DELETE"
                 })     
             }))
@@ -99,23 +99,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showFavorites(emotionInput){
-        fetch("http://localhost:3000/activity_favorites/")
+        fetch("http://localhost:3000/favorites/")
             .then(response => response.json())
-            .then(activity_favorites => activity_favorites.map(activity_favorite => {
-                if (activity_favorite.activity.emotion == emotionInput)
-                    createFavoriteCard(activity_favorite)
+            .then(favorites => favorites.map(favorite => {
+                if (favorite.activity.emotion == emotionInput)
+                    createFavoriteCard(favorite)
             }))
     }
 
-    function createFavoriteCard(activity_favorite){
+    function createFavoriteCard(favorite){
         const li = document.createElement("li")
         const favoriteDescription = document.createElement("p")
         const deleteButton = document.createElement("button")
         const cardDiv = document.createElement("div")
-        const AF = activity_favorite
+        const fave = favorite
 
         li.setAttribute("class", "cardLi")
-        favoriteDescription.innerText = activity_favorite.activity.description
+        favoriteDescription.innerText = favorite.activity.description
         deleteButton.innerText = "-"
 
         li.append(deleteButton, favoriteDescription)
@@ -129,13 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const addButton = document.createElement("button")
 
             li.setAttribute("class", "cardLi")
-            activityDescription.innerText = AF.activity.description
+            activityDescription.innerText = fave.activity.description
             addButton.innerText = "+"
     
             li.append(addButton, activityDescription)
             activityList.appendChild(li)
             
-            fetch(`http://localhost:3000/activity_favorites/${AF.id}`, {
+            fetch(`http://localhost:3000/favorites/${fave.id}`, {
                 method: "DELETE"
             })     
         })
@@ -186,7 +186,7 @@ function gotResults(error, result) {
   } else {
     label = result[0].label
     const showActivitiesButton = document.querySelector("#showMeActivities")
-    showActivitiesButton.innerText = `This looks like the letter ${label}`
+    showActivitiesButton.innerText = `This looks like the number ${label}`
     classifier.classify(gotResults)
   }
 }
