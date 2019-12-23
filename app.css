@@ -40,6 +40,9 @@ header li a {
     text-decoration: none;
 }
 
+
+/* styling for main page: */
+
 #activityList {
     display: flex;
     flex-direction: row;    
@@ -47,21 +50,15 @@ header li a {
 }
 
 .cardLi {
-    /* text-decoration: none; */
     display: flex;
     flex-direction: column;
     list-style-type: none;
     margin: 15px;
 }
 
-/* 
-.num-image {
-    width: 30px;
-} */
-
 .count-image {
     height: 10rem;
-    width: 5rem;
+    width: 7rem;
     margin: 5px;
 }
 
@@ -90,7 +87,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url('https://www.timelinecoverbanner.com/facebook-covers/turqoisse.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2014/12/28/13/54/pen-581881__480.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0px;
@@ -103,10 +100,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 550px;
-    padding: 20px;
-    background-color: #46aa94;
+    justify-content: flex-end;
+    height: 40rem;
+    width: 35rem;
+    /* padding: 20px; */
+    background-color: #b4bfc1;
     border-radius: 5px;
 
 }
@@ -127,6 +125,7 @@ main {
 #showMeActivities {
     width: 50%;
     margin-top: 20px; 
+    margin-bottom: 20px; 
     padding: 15px;
     font-size: 12pt;
     border-radius: 5px;
@@ -135,6 +134,7 @@ main {
 #asideDiv {
     display: flex;
     flex-direction: column;
+
 }
 
 p {
@@ -149,13 +149,16 @@ h2 {
 
 aside {
     height: 260px;
-    width: 600px;
-    background-color: #46aa94;
+    width: 50rem;
+    background-color:#b4bfc1;
     margin: 20px;
     border-radius: 5px;
     overflow: auto;
     padding: 20px;
 }
+
+
+/* styling for training page: */
 
 #trainContainer {
     display: flex;
