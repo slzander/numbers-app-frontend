@@ -16,14 +16,14 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 5rem;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     box-shadow: 0 0 25px 0 black;
     display: flex;
     justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
+    /* padding-left: 40px;
+    padding-right: 40px; */
 }
 
 header * {
@@ -44,7 +44,7 @@ header li a {
 
 /* styling for main page: */
 
-#activityList {
+#numberList {
     display: flex;
     flex-direction: row;    
     flex-wrap: wrap;
@@ -64,14 +64,9 @@ header li a {
 }
 
 .count-image {
-    height: 15rem;
-    width: 11rem;
+    height: 12rem;
+    width: 9rem;
     margin: 5px;
-}
-
-#logo {
-    display: flex;
-    text-align: center;
 }
 
 #title {
@@ -86,7 +81,7 @@ h1 {
 }
 
 #icon {
-    height: 140px;
+    height: 5rem;
 }
 
 main {
@@ -129,7 +124,7 @@ main {
     height: 60px;
 }
 
-#showMeActivities {
+#showMeNumbers {
     width: 50%;
     margin-top: 20px; 
     margin-bottom: 20px; 

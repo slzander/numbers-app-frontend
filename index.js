@@ -4,21 +4,21 @@ let video;
 let label = '...'
 
 document.addEventListener("DOMContentLoaded", () => {
-    const activityList = document.querySelector("#activityList")
+    const numberList = document.querySelector("#numberList")
     const favoriteList = document.querySelector("#favoriteList")
-    const howImFeelingButton = document.querySelector("#showMeActivities")
+    const numberButton = document.querySelector("#showMeNumbers")
 
-    howImFeelingButton.innerText = "Model is loading..."
+    numberButton.innerText = "Model is loading..."
 
-    howImFeelingButton.addEventListener("click", () => {
+    numberButton.addEventListener("click", () => {
         let number = label
-        activityList.innerHTML = ''
+        numberList.innerHTML = ''
         favoriteList.innerHTML = ''
-        showActivities(number)
+        showNumbers(number)
         showFavorites()
     })
 
-    function showActivities(numberInput){
+    function showNumbers(numberInput){
         fetch("http://localhost:3000/numbers/")
             .then(response => response.json())
             .then(numbers => numbers.map(number => {
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const li = document.createElement("li")
         const countImage = document.createElement("img")
         const addButton = document.createElement("button")
+        const numberCardDiv = document.createElement("div")
 
         li.id = number.name
         li.className = "cardLi"
@@ -56,9 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
         countImage.className = "count-image"
 
         li.append(countImage, addButton)
-        activityList.appendChild(li)
+        numberCardDiv.appendChild(li)
+        numberList.appendChild(numberCardDiv)
 
         addButton.addEventListener("click", (event) => {
+            numberCardDiv.remove()
             const li = document.createElement("li")
             const countImage = document.createElement("img")
             const deleteButton = document.createElement("button")
@@ -73,13 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cardDiv.appendChild(li)
             favoriteList.appendChild(cardDiv)
 
-            deleteButton.addEventListener("click", function(event){
-                cardDiv.remove()
-                fetch(`http://localhost:3000/favorites/${favorite.id}`, {
-                    method: "DELETE"
-                })     
-            })
-
             fetch("http://localhost:3000/favorites", {
                 method: "POST",
                 headers: {
@@ -88,6 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({
                    number_id: number.id
                 })
+            })
+
+            deleteButton.addEventListener("click", function(event){
+                cardDiv.remove()
+                fetch(`http://localhost:3000/favorites/${number.id}`, {
+                    method: "DELETE"
+                })     
             })
         })
     }
@@ -101,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createFavoriteCard(favorite){
-        
         const li = document.createElement("li")
         const countImage = document.createElement("img")
         const deleteButton = document.createElement("button")
@@ -121,18 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteButton.addEventListener("click", function(event){
             cardDiv.remove()
             
-            const li = document.createElement("li")
-            const countImage = document.createElement("img")
-            const addButton = document.createElement("button")
+            // const li = document.createElement("li")
+            // const countImage = document.createElement("img")
+            // const addButton = document.createElement("button")
+            // const newCardDiv = document.createElement("div")
     
-            li.id = fave.number.name
-            li.className = "cardLi"
-            countImage.src = fave.number.count_image
-            addButton.innerText = "+"
-            countImage.className = "count-image"
+            // li.id = fave.number.name
+            // li.className = "cardLi"
+            // countImage.src = fave.number.count_image
+            // addButton.innerText = "+"
+            // countImage.className = "count-image"
     
-            li.append(countImage, addButton)
-            activityList.appendChild(li)
+            // li.append(countImage, addButton)
+            // newCardDiv.appendChild(li)
+            // numberList.appendChild(newCardDiv)
             
             fetch(`http://localhost:3000/favorites/${fave.id}`, {
                 method: "DELETE"
@@ -184,8 +188,8 @@ function gotResults(error, result) {
     console.error(error)
   } else {
     label = result[0].label
-    const showActivitiesButton = document.querySelector("#showMeActivities")
-    showActivitiesButton.innerText = `This looks like the number ${label}`
+    const showNumbersButton = document.querySelector("#showMeNumbers")
+    showNumbersButton.innerText = `You drew the number ${label}`
     classifier.classify(gotResults)
   }
 }
