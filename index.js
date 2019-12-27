@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const favoriteList = document.querySelector("#favoriteList")
     const numberButton = document.querySelector("#showMeNumbers")
 
-    numberButton.innerText = "Model is loading..."
+    numberButton.innerText = "..."
 
     numberButton.addEventListener("click", () => {
         let number = label
@@ -161,7 +161,7 @@ function videoReady() {
 }
 
 function setup() {
-    createCanvas(455, 375)
+    createCanvas(465, 385)
     video = createCapture(VIDEO)
     video.hide()
     background(0)
@@ -177,7 +177,7 @@ function setup() {
 
 function draw() {
   background(0)
-  image(video, 5, 5, 444, 333)
+  image(video, 10, 10, 444, 333)
   fill(255)
   textSize(16)
 //   text(label, 20, height - 10)
@@ -189,7 +189,7 @@ function gotResults(error, result) {
   } else {
     label = result[0].label
     const showNumbersButton = document.querySelector("#showMeNumbers")
-    showNumbersButton.innerText = `You drew the number ${label}`
+    showNumbersButton.innerText = label
     classifier.classify(gotResults)
   }
 }
