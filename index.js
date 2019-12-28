@@ -123,22 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         deleteButton.addEventListener("click", function(event){
             cardDiv.remove()
-            
-            // const li = document.createElement("li")
-            // const countImage = document.createElement("img")
-            // const addButton = document.createElement("button")
-            // const newCardDiv = document.createElement("div")
-    
-            // li.id = fave.number.name
-            // li.className = "cardLi"
-            // countImage.src = fave.number.count_image
-            // addButton.innerText = "+"
-            // countImage.className = "count-image"
-    
-            // li.append(countImage, addButton)
-            // newCardDiv.appendChild(li)
-            // numberList.appendChild(newCardDiv)
-            
             fetch(`http://localhost:3000/favorites/${fave.id}`, {
                 method: "DELETE"
             })     

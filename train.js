@@ -20,11 +20,11 @@ let options = {numLabels: 11}
 
 
 function modelReady() {
-    // console.log('Model is ready!!!')
+    label = 'Model is ready'
 }
 
 function videoReady() {
-    label = "Ready to Train"
+    label = 'Ready to Train'
 }
 
 function setup() {
