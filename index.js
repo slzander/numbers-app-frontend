@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             })
 
+            // number.id isn't working (below) because we need favorite id...how to get this???
             deleteButton.addEventListener("click", function(event){
                 cardDiv.remove()
                 fetch(`http://localhost:3000/favorites/${number.id}`, {
@@ -118,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         li.append(countImage, deleteButton)
         cardDiv.appendChild(li)
-        favoriteList.appendChild(li)
+        favoriteList.appendChild(cardDiv)
 
         deleteButton.addEventListener("click", function(event){
             cardDiv.remove()
@@ -180,7 +181,6 @@ function draw() {
   image(video, 10, 10, 444, 333)
   fill(255)
   textSize(16)
-//   text(label, 20, height - 10)
 }
 
 function gotResults(error, result) {

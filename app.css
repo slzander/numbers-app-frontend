@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     font-family: 'Schoolbell', cursive;
@@ -79,7 +80,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url('https://cdn.pixabay.com/photo/2019/02/10/12/55/colored-pencil-3987167_1280.jpg');
+    /* background-image: url('https://cdn.pixabay.com/photo/2019/02/10/12/55/colored-pencil-3987167_1280.jpg'); */
+    background-image: url('https://cdn.pixabay.com/photo/2016/08/21/12/52/colored-pencils-1609594_1280.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0px;
@@ -99,6 +101,7 @@ main {
     background-color: #8b888a;
     border-radius: 5px;
     margin-left: -1rem;
+    border: 1px solid #2b2b2b;
 }
 
 #TVDiv {
@@ -130,12 +133,10 @@ main {
 
 h2 {
     padding-left: 20px; 
-    padding-bottom: 20px;
     /* font-family: 'Jura', sans-serif; */
 }
 
 aside {
-    height: 260px;
     width: 50rem;
     background-color:#8b888a;
     margin: 20px;
@@ -144,6 +145,47 @@ aside {
     padding: 20px;
 }
 
+#selectDiv {
+    height: 22rem;
+    margin-top: -6rem;
+    overflow-y: auto;
+    border: 1px solid #2b2b2b;
+}
+
+#faveDiv {
+    height: 22rem;
+    overflow-y: auto;
+    border: 1px solid #2b2b2b;
+}
+
+
+#selectDiv::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#selectDiv::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+#selectDiv::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid #f6f6f6;
+    background-color: #545454;
+}
+
+#faveDiv::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+#faveDiv::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+#faveDiv::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    border: 2px solid #f6f6f6;
+    background-color: #545454;
+}
 
 /* styling for training page: */
 
@@ -151,11 +193,12 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     height: 755px;
     padding: 20px;
     background-color: #8b888a;
     border-radius: 5px;
+    margin-top: -3rem;
 }
 
 #canvasDivTrain {
@@ -165,7 +208,6 @@ aside {
 }
 
 #buttonDiv {
-    /* margin-top: 15px; */
     width: 500px;
     height: 100px;
     display: flex;
@@ -180,8 +222,8 @@ aside {
     margin: 5px;
 }
 
-#buttonDiv button:nth-child(-n+10) {
-    width: 15%;
+#buttonDiv button:nth-child(-n+11) {
+    width: 23%;
     padding: 5px;
     margin: 5px;
 }
@@ -193,5 +235,5 @@ button {
 }
 
 button:hover {
-    background-color: #94c2ce;
+    background-color: #b6b6b6;
 }

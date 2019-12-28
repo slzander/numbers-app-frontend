@@ -13,9 +13,10 @@ let buttonSeven;
 let buttonEight;
 let buttonNine;
 let buttonTen;
+let buttonShow;
 let trainButton;
 let saveButton;
-let options = {numLabels: 10}
+let options = {numLabels: 11}
 
 
 function modelReady() {
@@ -128,6 +129,15 @@ function setup() {
         const ten = document.querySelector("#buttonDiv button:nth-child(10)")
         buttonTenCounter += 1
         ten.innerText = `10: ${buttonTenCounter}`
+    })
+
+    let buttonShowCounter = 0
+    buttonShow = createButton('No number')
+    buttonShow.mousePressed(function() {
+        classifier.addImage('Show me a number')
+        const show = document.querySelector("#buttonDiv button:nth-child(11)")
+        buttonShowCounter += 1
+        show.innerText = `No number: ${buttonShowCounter}`
     })
 
     trainButton = createButton('train')
