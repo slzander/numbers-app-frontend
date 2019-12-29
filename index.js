@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         addButton.addEventListener("click", (event) => {
             numberCardDiv.remove()
+            let faveID = 0
             const li = document.createElement("li")
             const countImage = document.createElement("img")
             const deleteButton = document.createElement("button")
@@ -84,12 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({
                    number_id: number.id
                 })
-            })
+            }).then(response => response.json())
+            .then(favorite => faveID = favorite.id)
 
-            // number.id isn't working (below) because we need favorite id...how to get this???
             deleteButton.addEventListener("click", function(event){
                 cardDiv.remove()
-                fetch(`http://localhost:3000/favorites/${number.id}`, {
+                fetch(`http://localhost:3000/favorites/${faveID}`, {
                     method: "DELETE"
                 })     
             })
@@ -131,18 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function modelReady() {
-  console.log('Model is ready!!!')
   classifier.load('model.json', customModelReady)
 }
 
 function customModelReady() {
-  console.log('Custom Model is ready!!!')
   label = '...'
   classifier.classify(gotResults)
 }
 
 function videoReady() {
-  console.log('Video is ready!!!')
+  console.log('Video is ready')
 }
 
 function setup() {
