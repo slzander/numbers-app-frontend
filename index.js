@@ -3,6 +3,8 @@ let classifier;
 let video;
 let label = '...'
 
+const baseURL = 'https://write-and-count.herokuapp.com/'
+
 document.addEventListener("DOMContentLoaded", () => {
     const numberList = document.querySelector("#numberList")
     const favoriteList = document.querySelector("#favoriteList")
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     function showNumbers(numberInput){
-        fetch("http://localhost:3000/numbers/")
+        fetch(`${baseURL}/numbers/`)
             .then(response => response.json())
             .then(numbers => numbers.map(number => {
                 if (number.num == numberInput)
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function fetchFavoritesList(){
-        return fetch("http://localhost:3000/favorites")
+        return fetch(`${baseURL}/favorites`)
             .then(response => response.json())
             .then(favorites => favorites.map(favorite => {
                 return favorite.number_id
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cardDiv.appendChild(li)
             favoriteList.appendChild(cardDiv)
 
-            fetch("http://localhost:3000/favorites", {
+            fetch(`${baseURL}/favorites`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -90,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             deleteButton.addEventListener("click", function(event){
                 cardDiv.remove()
-                fetch(`http://localhost:3000/favorites/${faveID}`, {
+                fetch(`${baseURL}/favorites/${faveID}`, {
                     method: "DELETE"
                 })     
             })
@@ -98,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showFavorites(){
-        fetch("http://localhost:3000/favorites/")
+        fetch(`${baseURL}/favorites/`)
             .then(response => response.json())
             .then(favorites => favorites.map(favorite => {
                     createFavoriteCard(favorite)
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         deleteButton.addEventListener("click", function(event){
             cardDiv.remove()
-            fetch(`http://localhost:3000/favorites/${fave.id}`, {
+            fetch(`${baseURL}/favorites/${fave.id}`, {
                 method: "DELETE"
             })     
         })
