@@ -1,11 +1,9 @@
-## Welcome to Write and Count, an app that encourages kids to practice writing numbers and counting!
-**Write and Count uses a pre-trained model that extracts features of an image to classify it according to the model. Have fun!**
+## Welcome to Write and Count!
+**This app encourages kids to practice writing numbers and counting. Write and Count uses a pre-trained model that extracts features of an image to classify it according to the model.**
 
 Created by Stacey Zander.
 
-This is a deployed app, but if you would like to run it locally, follow the "Install Instructions" below.
-
-Play:
+To Play:
 
 1. Draw a number (1 - 10) on a white piece of paper or whiteboard and hold it up to the camera. The model recognizes numbers best when the number fills the field of view of the camera.
 
@@ -36,6 +34,7 @@ https://ml5js.org/ - Feature Extractor, MobileNet model
 
 
 **Install Instructions:**
+(This is a deployed app, but if you would like to run it locally, follow these instructions.)
 
 1. Have current versions of Ruby, Rails, and Lite-Server installed.
 
