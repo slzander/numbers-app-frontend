@@ -3,7 +3,7 @@ let classifier;
 let video;
 let label = '...'
 
-const baseURL = 'https://write-and-count.herokuapp.com/'
+const baseURL = 'https://write-and-count.herokuapp.com'
 
 document.addEventListener("DOMContentLoaded", () => {
     const numberList = document.querySelector("#numberList")
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     function showNumbers(numberInput){
-        fetch(`${baseURL}/numbers/`)
+        fetch(`${baseURL}/numbers`)
             .then(response => response.json())
             .then(numbers => numbers.map(number => {
                 if (number.num == numberInput)
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showFavorites(){
-        fetch(`${baseURL}/favorites/`)
+        fetch(`${baseURL}/favorites`)
             .then(response => response.json())
             .then(favorites => favorites.map(favorite => {
                     createFavoriteCard(favorite)
