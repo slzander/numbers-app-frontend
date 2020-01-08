@@ -19,33 +19,17 @@ To Play:
   
 **Demo:**
 
-
+https://www.youtube.com/watch?v=Lj_CKU8zdhY
 
 **Stack:**
 
 Ruby/Rails
+
 Postgresql
+
 JavaScript
 
 **API:**
 
 https://p5js.org/  
 https://ml5js.org/ - Feature Extractor, MobileNet model
-
-
-**Install Instructions:**
-(This is a deployed app, but if you would like to run it locally, follow these instructions.)
-
-1. Have current versions of Ruby, Rails, and Lite-Server installed.
-
-2. Install Ruby gems by running the command 'bundle install'.
-
-3. Run the command 'rails db:create' and 'rails db:migrate' to set up your database.
-
-4. Run the command 'rails db:seed' to fill the database with existing activities.
-
-5. Open your terminal and navigate into the emotionsApp directory within the backend directory. Run the command 'rails s'.
-
-6. Open a separate terminal window and navigate into the frontend folder. Run the command 'lite-server'.
-
-7. Go to http://localhost:3001/, allow the app to use the camera on your computer.
