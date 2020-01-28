@@ -33,3 +33,7 @@ JavaScript
 
 https://p5js.org/  
 https://ml5js.org/ - Feature Extractor, MobileNet model
+
+**Link to Backend Repo:**
+
+https://github.com/slzander/numbers-app-backend
