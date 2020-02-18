@@ -1,4 +1,8 @@
 ## Welcome to Write and Count!
+
+https://write-and-count.firebaseapp.com/
+
+
 **This app encourages kids to practice writing numbers and counting. Write and Count uses a pre-trained model that extracts features of an image to classify it according to the model.**
 
 Created by Stacey Zander.
