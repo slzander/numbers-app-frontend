@@ -7,7 +7,7 @@ https://write-and-count.firebaseapp.com/
 
 Created by Stacey Zander.
 
-To Play:
+**To Play:**
 
 1. Draw a number (1 - 10) on a white piece of paper or whiteboard and hold it up to the camera. The model recognizes numbers best when the number fills the field of view of the camera.
 
